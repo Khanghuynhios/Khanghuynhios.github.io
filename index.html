@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Buff Skill</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #cce7ff;
+    overflow-x: hidden;
+}
+
+/* Lá rơi */
+.leaf {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 50%;
+    top: -20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) translateX(0) rotate(0); }
+    100% { transform: translateY(120vh) translateX(40px) rotate(360deg); }
+}
+
+/* Page */
+.page {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+.show { display: block; }
+
+.box {
+    background: #0f1113;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 0 0 20px #00000060;
+}
+
+.btn {
+    background: #00b7ff;
+    padding: 14px;
+    color: white;
+    display: block;
+    margin: auto;
+    width: 80%;
+    border-radius: 12px;
+    font-size: 18px;
+    margin-top: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-black {
+    background: #1b1c1d;
+}
+
+input {
+    width: 80%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: #1a1b1d;
+    width: 42%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page show">
+    <h1 style="color:#00ffaa;">Menu Buff Skill</h1>
+
+    <div class="box">
+        <h2>NHẬP KEY ĐỂ KÍCH HOẠT</h2>
+        <input id="keyInput" placeholder="Nhập key của bạn">
+
+        <a class="btn" onclick="checkKey()">KÍCH HOẠT & ĐĂNG NHẬP</a>
+
+        <a class="btn-black btn" href="https://zalo.me/0775893691">
+            LIÊN HỆ ADMIN
+        </a>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+    <h1 style="color:#00ffaa;">Menu Buff Skill</h1>
+
+    <div class="box">
+        <h2>23% CPU – 29% RAM – 50% Network</h2>
+
+        <div class="card-container">
+            <div class="card">Battery Save</div>
+            <div class="card">Balance</div>
+            <div class="card">Gamer Mode</div>
+        </div>
+
+        <h2>Tăng hiệu suất</h2>
+
+        <div class="card-container">
+            <div class="card">Touch View</div>
+            <div class="card">Speed Smooth</div>
+            <div class="card">Control Drag</div>
+            <div class="card">Aimbot Supper</div>
+            <div class="card">Regedit Aimlock</div>
+            <div class="card">Sensitivity</div>
+        </div>
+
+        <a class="btn" onclick="showApps()">⚡ Chọn Ứng Dụng ⚡</a>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="pageApps" class="page">
+    <h2>Chọn phiên bản game</h2>
+
+    <div class="box">
+        <a class="btn" onclick="alert('Đã chọn Free Fire thường!')">Free Fire</a>
+        <a class="btn" onclick="alert('Đã chọn Free Fire Max!')">Free Fire Max</a>
+    </div>
+</div>
+
+<script>
+/* Tạo lá rơi SAU khi trang load -> tránh lỗi */
+window.onload = function () {
+    for (let i = 0; i < 25; i++) {
+        let leaf = document.createElement("div");
+        leaf.className = "leaf";
+        leaf.style.left = Math.random() * 100 + "vw";
+        leaf.style.animationDuration = 3 + Math.random() * 5 + "s";
+        leaf.style.opacity = Math.random();
+        document.body.appendChild(leaf);
+    }
+};
+
+/* KIỂM TRA KEY */
+function checkKey() {
+    let key = document.getElementById("keyInput").value.trim();
+
+    if (key === "KHANGHUYNH-KEYVV" || key === "KHANGHUYNH-KEY1") {
+        document.getElementById("page1").classList.remove("show");
+        document.getElementById("page2").classList.add("show");
+    } else {
+        alert("Sai key! Vui lòng kiểm tra lại.");
+    }
+}
+
+/* CHỌN ỨNG DỤNG */
+function showApps() {
+    document.getElementById("page2").classList.remove("show");
+    document.getElementById("pageApps").classList.add("show");
+}
+</script>
+
+</body>
+</html>
